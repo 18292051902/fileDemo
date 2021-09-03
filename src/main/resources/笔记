@@ -1,0 +1,33 @@
+一.输入输出流
+InputStream、OutputStream: 读写基于字节byte
+InputStream:
+    abstract int read()
+    int read(byte[] b)
+    int read(byte[] b, int off, int len) 读入字节数组，返回实际读写的字节数，或在碰到输入流的结尾时返回-1
+    int available() 返回在不阻塞的情况下可获取的字节数
+    void close() 关闭输入流
+OutputStream:
+    void write(byte[] b, int off, int len) 写出某个范围内的字节到数组b中
+    void flush() 冲刷输出流
+    void close() 冲刷并关闭输出流
+
+Reader、Writer: 读写基于基于两字节的char值（即Unicode码元）
+Writer实现了Appendable接口
+    Appendable append(char c)
+    Appendable append(CharSequence cs)
+
+输入输出流过滤器：
+    DataInputStream dis =
+
+
+
+
+
+
+二.文本输入与输出
+
+三.读写二进制数据
+
+四.对象输入输出流
+
+五.操作文件
