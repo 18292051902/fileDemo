@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /file
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://101.37.77.15:3306/cfbtest?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: rbttest
+    password: rbttest
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 初始化，最小，最大连接数
+    initialSize: 3
+    minidle: 3
+    maxActive: 18
+    # 获取数据库连接等待的超时时间
+    maxWait: 60000
+
+mybatis-plus:
+  mapper-locations: classpath:dao/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

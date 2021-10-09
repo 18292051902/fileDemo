@@ -1,9 +1,8 @@
-package com.example.filedemo.biz.impl;
+package com.example.filedemo.biz.file.impl;
 
 import cn.hutool.core.date.DatePattern;
-import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
-import com.example.filedemo.biz.FileUploadService;
+import com.example.filedemo.biz.file.FileUploadService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import cn.hutool.core.date.DateUtil;

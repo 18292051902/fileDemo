@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.filedemo.dao.OrderMainMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.filedemo.dto.order.OrderMainDTO">
+        <id column="urid" property="urid"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="user_id" property="userId"/>
+        <result column="operate_user_id" property="operateUserId"/>
+        <result column="finance_user_id" property="financeUserId"/>
+        <result column="down_pay_id" property="downPayId"/>
+        <result column="premium_pay_id" property="premiumPayId"/>
+        <result column="credit_serial_no" property="creditSerialNo"/>
+        <result column="second_platform_code" property="secondPlatformCode"/>
+        <result column="second_platform_name" property="secondPlatformName"/>
+        <result column="enterprise_main_id" property="enterpriseMainId"/>
+        <result column="enterprise_name" property="enterpriseName"/>
+        <result column="enterprise_social_credit_code" property="enterpriseSocialCreditCode"/>
+        <result column="payee_org_name" property="payeeOrgName"/>
+        <result column="package_type" property="packageType"/>
+        <result column="proposal_no" property="proposalNo"/>
+        <result column="new_car_flag" property="newCarFlag"/>
+        <result column="license_no" property="licenseNo"/>
+        <result column="frame_no" property="frameNo"/>
+        <result column="engine_no" property="engineNo"/>
+        <result column="policy_no" property="policyNo"/>
+       <!-- <result column="policy_insurance_time" property="policyInsuranceTime"/>
+        <result column="policy_effective_time" property="policyEffectiveTime"/>
+        <result column="policy_expiry_time" property="policyExpiryTime"/>
+        <result column="down_pay_expiry_time" property="downPayExpiryTime"/>
+        <result column="premium_bi" property="premiumBi"/>
+        <result column="down_pay_amount" property="downPayAmount"/>
+        <result column="installment_amount" property="installmentAmount"/>
+        <result column="expect_make_loan_amount" property="expectMakeLoanAmount"/>
+        <result column="proposal_state_citic_bank" property="proposalStateCiticBank"/>
+        <result column="proposal_review_state" property="proposalReviewState"/>
+        <result column="proposal_review_time" property="proposalReviewTime"/>
+        <result column="policy_review_state" property="policyReviewState"/>
+        <result column="policy_review_time" property="policyReviewTime"/>
+        <result column="proposal_state_code" property="proposalStateCode"/>
+        <result column="proposal_state_desc" property="proposalStateDesc"/>
+        <result column="proposal_update_time" property="proposalUpdateTime"/>
+        <result column="order_state_code" property="orderStateCode"/>
+        <result column="order_state_desc" property="orderStateDesc"/>
+        <result column="order_update_time" property="orderUpdateTime"/>
+        <result column="valid_status" property="validStatus"/>
+        <result column="version" property="version"/>
+        <result column="creator" property="creator"/>
+        <result column="updator" property="updator"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>-->
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        urid,
+        order_no,
+        user_id,
+        operate_user_id,
+        finance_user_id,
+        down_pay_id,
+        premium_pay_id,
+        credit_serial_no,
+        second_platform_code,
+        second_platform_name,
+        enterprise_main_id,
+        enterprise_name,
+        enterprise_social_credit_code,
+        payee_org_name,
+        package_type,
+        proposal_no,
+        new_car_flag,
+        license_no,
+        frame_no,
+        engine_no,
+        policy_no,
+        policy_insurance_time,
+        policy_effective_time,
+        policy_expiry_time,
+        down_pay_expiry_time,
+        premium_bi,
+        down_pay_amount,
+        installment_amount,
+        expect_make_loan_amount,
+        proposal_state_citic_bank,
+        proposal_review_state,
+        proposal_review_time,
+        policy_review_state,
+        policy_review_time,
+        proposal_state_code,
+        proposal_state_desc,
+        proposal_update_time,
+        order_state_code,
+        order_state_desc,
+        order_update_time,
+        valid_status,
+        version,
+        creator,
+        updator,
+        create_time,
+        update_time
+    </sql>
+
+
+    <select id="queryByParam" resultMap="BaseResultMap"
+            parameterType="com.example.filedemo.dto.order.OrderMainParam">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM rbt_cfb_order_main
+        <where>
+            <if test="urid != null and urid != ''">
+                AND urid = #{urid}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                AND order_no = #{orderNo}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="operateUserId != null and operateUserId != ''">
+                AND operate_user_id = #{operateUserId}
+            </if>
+            <if test="financeUserId != null and financeUserId != ''">
+                AND finance_user_id = #{financeUserId}
+            </if>
+            <if test="downPayId != null and downPayId != ''">
+                AND down_pay_id = #{downPayId}
+            </if>
+            <if test="premiumPayId != null and premiumPayId != ''">
+                AND premium_pay_id = #{premiumPayId}
+            </if>
+            <if test="creditSerialNo != null and creditSerialNo != ''">
+                AND credit_serial_no = #{creditSerialNo}
+            </if>
+            <if test="secondPlatformCode != null and secondPlatformCode != ''">
+                AND second_platform_code = #{secondPlatformCode}
+            </if>
+            <if test="secondPlatformName != null and secondPlatformName != ''">
+                AND second_platform_name = #{secondPlatformName}
+            </if>
+            <if test="enterpriseMainId != null and enterpriseMainId != ''">
+                AND enterprise_main_id = #{enterpriseMainId}
+            </if>
+            <if test="enterpriseName != null and enterpriseName != ''">
+                AND enterprise_name = #{enterpriseName}
+            </if>
+            <if test="enterpriseSocialCreditCode != null and enterpriseSocialCreditCode != ''">
+                AND enterprise_social_credit_code = #{enterpriseSocialCreditCode}
+            </if>
+            <if test="payeeOrgName != null and payeeOrgName != ''">
+                AND payee_org_name = #{payeeOrgName}
+            </if>
+            <if test="packageType != null and packageType != ''">
+                AND package_type = #{packageType}
+            </if>
+            <if test="proposalNo != null and proposalNo != ''">
+                AND proposal_no = #{proposalNo}
+            </if>
+            <if test="newCarFlag != null and newCarFlag != ''">
+                AND new_car_flag = #{newCarFlag}
+            </if>
+            <if test="licenseNo != null and licenseNo != ''">
+                AND license_no = #{licenseNo}
+            </if>
+            <if test="frameNo != null and frameNo != ''">
+                AND frame_no = #{frameNo}
+            </if>
+            <if test="engineNo != null and engineNo != ''">
+                AND engine_no = #{engineNo}
+            </if>
+            <if test="policyNo != null and policyNo != ''">
+                AND policy_no = #{policyNo}
+            </if>
+            <if test="policyInsuranceTime != null">
+                AND policy_insurance_time = #{policyInsuranceTime}
+            </if>
+            <if test="policyEffectiveTime != null">
+                AND policy_effective_time = #{policyEffectiveTime}
+            </if>
+            <if test="policyExpiryTime != null">
+                AND policy_expiry_time = #{policyExpiryTime}
+            </if>
+            <if test="downPayExpiryTime != null">
+                AND down_pay_expiry_time = #{downPayExpiryTime}
+            </if>
+            <if test="premiumBi != null">
+                AND premium_bi = #{premiumBi}
+            </if>
+            <if test="downPayAmount != null">
+                AND down_pay_amount = #{downPayAmount}
+            </if>
+            <if test="installmentAmount != null">
+                AND installment_amount = #{installmentAmount}
+            </if>
+            <if test="expectMakeLoanAmount != null">
+                AND expect_make_loan_amount = #{expectMakeLoanAmount}
+            </if>
+            <if test="proposalStateCiticBank != null and proposalStateCiticBank != ''">
+                AND proposal_state_citic_bank = #{proposalStateCiticBank}
+            </if>
+            <if test="proposalReviewState != null and proposalReviewState != ''">
+                AND proposal_review_state = #{proposalReviewState}
+            </if>
+            <if test="proposalReviewTime != null">
+                AND proposal_review_time = #{proposalReviewTime}
+            </if>
+            <if test="policyReviewState != null and policyReviewState != ''">
+                AND policy_review_state = #{policyReviewState}
+            </if>
+            <if test="policyReviewTime != null">
+                AND policy_review_time = #{policyReviewTime}
+            </if>
+            <if test="proposalStateCode != null and proposalStateCode != ''">
+                AND proposal_state_code = #{proposalStateCode}
+            </if>
+            <if test="proposalStateDesc != null and proposalStateDesc != ''">
+                AND proposal_state_desc = #{proposalStateDesc}
+            </if>
+            <if test="proposalUpdateTime != null">
+                AND proposal_update_time = #{proposalUpdateTime}
+            </if>
+            <if test="orderStateCode != null and orderStateCode != ''">
+                AND order_state_code = #{orderStateCode}
+            </if>
+            <if test="orderStateDesc != null and orderStateDesc != ''">
+                AND order_state_desc = #{orderStateDesc}
+            </if>
+            <if test="orderUpdateTime != null">
+                AND order_update_time = #{orderUpdateTime}
+            </if>
+            <if test="validStatus != null and validStatus != ''">
+                AND valid_status = #{validStatus}
+            </if>
+            <if test="version != null">
+                AND version = #{version}
+            </if>
+            <if test="creator != null and creator != ''">
+                AND creator = #{creator}
+            </if>
+            <if test="updator != null and updator != ''">
+                AND updator = #{updator}
+            </if>
+            <if test="createTime != null">
+                AND create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                AND update_time = #{updateTime}
+            </if>
+            <if test="urids != null and urids.size() > 0">
+                and urid in
+                <foreach collection="urids" open="(" separator="," close=")" item="uridData">
+                    #{uridData}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+
+</mapper>
